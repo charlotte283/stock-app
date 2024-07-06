@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Cards from '../components/Cards';
+import Search from '../components/Search';
 
 const Home = () => {
-  return (
-    <>
-        Hello Page
-    </>
-  );
+    const [searchString, setSearchString] = useState('');
+    const handleSearchStringUpdate = (searchString) => {
+        setSearchString(searchString);
+    };
+
+    return (
+        <div>
+            <Search searchStringUpdated={handleSearchStringUpdate} />
+            <Cards searchString={searchString} />
+        </div>
+    );
 }
 
 export default Home;
